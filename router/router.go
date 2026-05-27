@@ -8,7 +8,9 @@ type (
 		Post(path string, handler http.HandlerFunc) Router
 		Put(path string, handler http.HandlerFunc) Router
 		Delete(path string, handler http.HandlerFunc) Router
+
 		Use(middleware ...Middleware) Router
+
 		Group(basePath string) Router
 		SubGroup(basePath string) Router
 	}

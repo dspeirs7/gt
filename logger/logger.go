@@ -8,7 +8,7 @@ import (
 )
 
 func NewLogger(w io.Writer) *slog.Logger {
-	th := slog.NewTextHandler(
+	th := slog.NewJSONHandler(
 		w, &slog.HandlerOptions{
 			ReplaceAttr: func(groups []string, a slog.Attr) slog.Attr {
 				switch a.Key {

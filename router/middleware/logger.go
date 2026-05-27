@@ -27,7 +27,7 @@ func Log(logger Logger) func(next http.Handler) http.Handler {
 			wrappedWriter := &WrapResponseWriter{ResponseWriter: w}
 
 			defer func() {
-				logger.Info(fmt.Sprintf("%s %s - %d in %s", r.Method, r.URL.Path, wrappedWriter.code, time.Since(now)))
+				logger.Info("incoming request", "method", r.Method, "path", r.URL.Path, "status", wrappedWriter.code, "duration", time.Since(now))
 			}()
 
 			next.ServeHTTP(wrappedWriter, r)
