@@ -83,10 +83,10 @@ func (r *Mux) Group(basePath string) Router {
 	return rCopy
 }
 
-func (r *Mux) SubGroup(basePath string) Router {
+func (r *Mux) SubGroup(path string) Router {
 	rCopy := r
 
-	rCopy.basePath = filepath.Join(rCopy.basePath, basePath)
+	rCopy.basePath = filepath.Join(rCopy.basePath, path)
 	rCopy.middlewares = copyMiddlewares(r.middlewares)
 
 	return rCopy

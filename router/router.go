@@ -12,7 +12,7 @@ type (
 		Use(middleware ...Middleware) Router
 
 		Group(basePath string) Router
-		SubGroup(basePath string) Router
+		SubGroup(path string) Router
 	}
 
 	Middleware func(http.Handler) http.Handler
